@@ -1,0 +1,25 @@
+#include <Wire.h>
+#include<Arduino.h>
+#define sensoraddress 0x07 
+void setup ()
+{
+Wire.begin();
+delay (500);
+Serial.begin(9600);
+}
+
+void loop(){
+Wire.beginTransmission(sensoraddress);
+Wire.write(1);
+Wire.endTransmission();
+delay(30);
+Wire.requestFrom(sensoraddress,2);
+while(Wire.available()==0);
+byte MSB = Wire.read();
+byte LSB = Wire.read();
+
+float flow = ((MSB<<8)+LSB)/1000.0;
+Serial.print(flow);
+Serial.println("(L/min)");
+delay(1000);
+}
