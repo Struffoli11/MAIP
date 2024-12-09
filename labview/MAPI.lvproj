@@ -51,6 +51,9 @@
 		<Item Name="write_command_reset.vi" Type="VI" URL="../write_command_reset.vi"/>
 		<Item Name="write_command.vi" Type="VI" URL="../write_command.vi"/>
 		<Item Name="Untitled 1.vi" Type="VI" URL="../../../../../../Desktop/Untitled 1.vi"/>
+		<Item Name="Build_Flow_Task.vi" Type="VI" URL="../Build_Flow_Task.vi"/>
+		<Item Name="daq_FSM.vi" Type="VI" URL="../daq_FSM.vi"/>
+		<Item Name="daq_FSM.ctl" Type="VI" URL="../daq_FSM.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="BuildHelpPath.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/BuildHelpPath.vi"/>
@@ -258,6 +261,7 @@
 				<Item Name="DAQmx Timing (Handshaking).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/timing.llb/DAQmx Timing (Handshaking).vi"/>
 				<Item Name="DAQmx Timing (Sample Clock).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/timing.llb/DAQmx Timing (Sample Clock).vi"/>
 				<Item Name="DAQmx Timing.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/timing.llb/DAQmx Timing.vi"/>
+				<Item Name="DAQmx Create Task.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/task.llb/DAQmx Create Task.vi"/>
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="Regression Equation String.vi" Type="VI" URL="../../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2019/examples/Mathematics/Fitting/support/Regression Equation String.vi"/>
