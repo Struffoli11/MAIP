@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #e0f7fa;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .title {
+            display: inline-block;
+            font-size: 4em;
+            font-weight: bold;
+            position: relative;
+            white-space: nowrap;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .sidenav {
+        position: absolute; /* added this */
+        right: 100%; /* push the right hand edge all the way to the left edge of the container */
+
+        /* this is all just prettification */
+        border: 1px solid black;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        display: flex;
+        flex-direction:column;
+        gap: 0.5rem;
+        background: #333;
+        color: white;
+        }
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .letter {
+            display: inline-block;
+            position: relative;
+            opacity: 1;
+            animation: blowRight 2s ease-in-out forwards;
+            margin-right: 0.5em;
+        }
+
+        @keyframes blowRight {
+            0% {
+                transform: translateX(0) translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(200px) translateY(-40px) rotate(20deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="title hidden" id="animated-title"></h1>
+</header>
+
+<main>
+    <p>Welcome to the wind-blown animation demo page!</p>
+</main>
+
+<script>
+    const titles = ["Windy Title", "Titre Venteux", "Windiger Titel"];
+    let currentIndex = 0;
+    const titleElement = document.getElementById("animated-title");
+
+    // Function to set and animate the title
+    function setTitle() {
+        // Hide the title first
+        titleElement.classList.add("hidden");
+
+        // Wait for fade-out to complete
+        setTimeout(() => {
+            // Clear the current content
+            titleElement.innerHTML = "";
+
+            // Populate the next title
+            const currentTitle = titles[currentIndex].split(" ");
+            currentTitle.forEach((word, wordIndex) => {
+                word.split("").forEach((letter, i) => {
+                    const span = document.createElement("span");
+                    span.classList.add("letter");
+                    span.style.animationDelay = `${wordIndex * 0.3 + i * 0.1}s`;
+                    span.textContent = letter;
+                    titleElement.appendChild(span);
+                });
+
+                // Add extra space between words
+                const space = document.createElement("span");
+                space.style.marginRight = "1em";
+                titleElement.appendChild(space);
+            });
+
+            // Update index for the next cycle
+            currentIndex = (currentIndex + 1) % titles.length;
+
+            // Show the title after updating the text
+            titleElement.classList.remove("hidden");
+
+            // Wait for animation to finish and restart
+            titleElement.addEventListener(
+                "animationend",
+                () => {
+                    setTimeout(setTitle, 1000); // Delay before next animation
+                },
+                { once: true }
+            );
+        }, 500); // Wait for fade-out to complete
+    }
+
+    // Start animation
+    setTitle();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="page">
+<style>
+        .page header {
+  border: #005a9c solid 2px;
+  background: #005a9c;
+  color: white;
+  text-align: center;
+}
+
+.page header .title {
+  font-size: 2.5em;
+  font-weight: bold;
+  font-family: serif;
+}
+
+.page header .tagline {
+  font-style: italic;
+}
+
+.page footer {
+  border: #005a9c solid 2px;
+  background: #005a9c;
+  font-family: serif;
+  color: white;
+  font-style: italic;
+  padding-left: 1em;
+}
+
+.page .body {
+  display: grid;
+  grid-template-columns: auto auto;
+  border: #eee solid 2px;
+}
+
+.page .body nav {
+  margin: 0;
+  padding: 6px;
+  width: 17em;
+  height: 60em;
+  background: #eee;
+}
+
+.page .body nav.focus {
+  padding: 4px;
+  border: 2px solid #005a9c;
+}
+
+.page .body .page {
+  margin: 0.25em;
+  padding: 0.25em;
+  height: 30em;
+}
+
+.page .body .page h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.page .main {
+  padding: 1em;
+}
+
+.treeview-navigation ul,
+.treeview-navigation li {
+  margin: 0;
+  padding: 0;
+}
+
+.treeview-navigation li li span.label {
+  padding-left: 1em;
+}
+
+.treeview-navigation li li li span.label {
+  padding-left: 2em;
+}
+
+.treeview-navigation[role="tree"] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.treeview-navigation[role="tree"] li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.treeview-navigation a[role="treeitem"] ul {
+  margin: 0;
+  padding: 0;
+}
+
+.treeview-navigation
+  a[role="treeitem"][aria-expanded="false"]
+  + [role="group"] {
+  display: none;
+}
+
+.treeview-navigation a[role="treeitem"][aria-expanded="true"] + [role="group"] {
+  display: block;
+}
+
+.treeview-navigation a[role="treeitem"] > span svg {
+  transform: translate(0, 0);
+}
+
+.treeview-navigation a[role="treeitem"][aria-expanded="false"] > span svg {
+  transform: rotate(270deg) translate(2px, 2px);
+}
+
+.treeview-navigation a[role="treeitem"] {
+  margin: 0;
+  padding: 4px;
+  padding-left: 9px;
+  text-decoration: none;
+  color: #005a9c;
+  border: none;
+  display: block;
+}
+
+.treeview-navigation a[role="treeitem"][aria-current] {
+  border-left: 5px solid #005a9c;
+  padding-left: 4px;
+  background-color: #ddd;
+}
+
+.treeview-navigation a[role="treeitem"] span.icon svg polygon {
+  stroke-width: 2px;
+  fill: currentcolor;
+  stroke: transparent;
+}
+
+/* disable default keyboard focus styling for treeitems
+   Keyboard focus is styled with the following CSS */
+
+.treeview-navigation a[role="treeitem"]:focus {
+  outline: 0;
+  padding: 2px;
+  padding-left: 7px;
+  border: 2px #005a9c solid;
+}
+
+.treeview-navigation a[role="treeitem"][aria-current]:focus {
+  padding-left: 4px;
+  border-left-width: 5px;
+}
+
+.treeview-navigation a[role="treeitem"]:hover {
+  background-color: #adddff;
+  text-decoration: underline;
+  padding-left: 4px;
+  border-left: 5px solid #333;
+}
+
+.treeview-navigation a[role="treeitem"] span.icon:hover {
+  color: #333;
+}
+
+.treeview-navigation a[role="treeitem"] span.icon svg polygon:hover {
+  stroke: currentcolor;
+}
+
+    </style>
+    <body>
+    <header role="banner">
+      <div class="title" id="id_website_title">Mythical University</div>
+      <div class="tagline">Using a Tree widget pattern for navigation links</div>
+    </header>
+    <div class="body">
+      <nav aria-label="Mythical University">
+        <ul class="treeview-navigation" role="tree" aria-label="Mythical University">
+          <li role="none">
+            <a role="treeitem" href="#home" aria-current="page">
+              <span class="label">Home</span>
+            </a>
+          </li>
+          <li role="none">
+            <a role="treeitem" aria-expanded="false" aria-owns="id-about-subtree" href="#about">
+              <span class="label">
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                    <polygon points="2 1, 12 1, 7 9"></polygon>
+                  </svg>
+                </span>
+                About
+              </span>
+            </a>
+            <ul id="id-about-subtree" role="group" aria-label="About">
+              <li role="none">
+                <a role="treeitem" href="#overview">
+                  <span class="label">Overview</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#adminstration">
+                  <span class="label">Administration</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" aria-expanded="false" aria-owns="id-facts-subtree" href="#facts">
+                  <span class="label">
+                    <span class="icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                        <polygon points="2 1, 12 1, 7 9"></polygon>
+                      </svg>
+                    </span>
+                    Facts
+                  </span>
+                </a>
+                <ul id="id-facts-subtree" role="group" aria-label="Facts">
+                  <li role="none">
+                    <a role="treeitem" href="#history">
+                      <span class="label">History</span>
+                    </a>
+                  </li>
+                  <li role="none">
+                    <a role="treeitem" href="#current-statistics">
+                      <span class="label"> Current Statistics </span>
+                    </a>
+                  </li>
+                  <li role="none">
+                    <a role="treeitem" href="#awards">
+                      <span class="label">Awards</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li role="none">
+                <a role="treeitem" aria-expanded="false" aria-owns="id-campus-tours-subtree" href="#campus-tours">
+                  <span class="label">
+                    <span class="icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                        <polygon points="2 1, 12 1, 7 9"></polygon>
+                      </svg>
+                    </span>
+                    Campus Tours
+                  </span>
+                </a>
+                <ul id="id-campus-tours-subtree" role="group" aria-label="Campus Tours">
+                  <li role="none">
+                    <a role="treeitem" href="#for-prospective-students">
+                      <span class="label"> For Prospective Students </span>
+                    </a>
+                  </li>
+                  <li role="none">
+                    <a role="treeitem" href="#for-alumni">
+                      <span class="label">For Alumni</span>
+                    </a>
+                  </li>
+                  <li role="none">
+                    <a role="treeitem" href="#for-visitors">
+                      <span class="label">For Visitors</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li role="none">
+            <a role="treeitem" aria-expanded="false" aria-owns="id-admissions-subtree" href="#admissions">
+              <span class="label">
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                    <polygon points="2 1, 12 1, 7 9"></polygon>
+                  </svg>
+                </span>
+                Admissions
+              </span>
+            </a>
+            <ul id="id-admissions-subtree" role="group" aria-label="Admissions">
+              <li role="none">
+                <a role="treeitem" href="#apply">
+                  <span class="label">Apply</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" aria-expanded="false" aria-owns="id-tuition-subtree" href="#tuition">
+                  <span class="label">
+                    <span class="icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                        <polygon points="2 1, 12 1, 7 9"></polygon>
+                      </svg>
+                    </span>
+                    Tuition
+                  </span>
+                </a>
+                <ul id="id-tuition-subtree" role="group" aria-label="Tuition">
+                  <li role="none">
+                    <a role="treeitem" href="#undergraduate">
+                      <span class="label">Undergraduate</span>
+                    </a>
+                  </li>
+                  <li role="none">
+                    <a role="treeitem" href="#graduate">
+                      <span class="label">Graduate</span>
+                    </a>
+                  </li>
+                  <li role="none">
+                    <a role="treeitem" href="#professional-schools">
+                      <span class="label">Professional Schools</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#signup">
+                  <span class="label">Sign Up</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#visit">
+                  <span class="label">Visit</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#photo-tour">
+                  <span class="label">Photo Tour</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#connect">
+                  <span class="label">Connect</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li role="none">
+            <a role="treeitem" aria-expanded="false" aria-owns="id-academics-subtree" href="#academics">
+              <span class="label">
+                <span class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                    <polygon points="2 1, 12 1, 7 9"></polygon>
+                  </svg>
+                </span>
+                Academics
+              </span>
+            </a>
+            <ul id="id-academics-subtree" role="group" aria-label="Academics">
+              <li role="none">
+                <a role="treeitem" href="#colleges-and-schools">
+                  <span class="label">Colleges &amp; Schools</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#programs-of-study">
+                  <span class="label">Programs of Study</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#honors-programs">
+                  <span class="label">Honors Programs</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#online-courses">
+                  <span class="label">Online Courses</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#course-explorer">
+                  <span class="label">Course Explorer</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#register-for-classes">
+                  <span class="label">Register for Classes</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#academic-calendar">
+                  <span class="label">Academic Calendar</span>
+                </a>
+              </li>
+              <li role="none">
+                <a role="treeitem" href="#tanscripts">
+                  <span class="label">Transcripts</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      
+      <section class="main" aria-labelledby="id_website_title id_page_title">
+        <h1 class="page_title" id="id_page_title">Mythical University</h1>
+        <div class="content">
+          <p></p>
+        </div>
+      </section>
+    </div>
+    
+    <footer role="contentinfo">Mythical University footer information</footer>
+  </div>
+</body>
+<script>/*
+    *   This content is licensed according to the W3C Software License at
+    *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+    *
+    *   File: treeview-navigation.js
+    *   Desc: Tree item object for representing the state and user interactions for a
+    *       tree widget for navigational links
+    */
+   
+   'use strict';
+   
+   class NavigationContentGenerator {
+     constructor(siteURL, siteName) {
+       this.siteName = siteName;
+       this.siteURL = siteURL;
+       this.fillerTextSentences = [];
+   
+       this.fillerTextSentences.push(
+         'The content on this page is associated with the <a href="$linkURL">$linkName</a> link for <a href="$siteURL">$siteName</a>.'
+       );
+       //  this.fillerTextSentences.push('The text content in this paragraph is filler text providing a detectable change of content when the <a href="$linkURL">$linkName</a> link is selected from the menu.  ');
+       //  this.fillerTextSentences.push('<a href="$siteURL">$siteName</a> doesn\'t really exist, but the use of an organizational name is useful to provide context for the <a href="$linkURL">$linkName</a> link.  ');
+       //  this.fillerTextSentences.push('Since $siteName doesn\'t exist there really is no real content associated with the <a href="$linkURL">$linkName</a> link.');
+     }
+   
+     renderParagraph(linkURL, linkName) {
+       var content = '';
+       this.fillerTextSentences.forEach(
+         (s) =>
+           (content += s
+             .replace('$siteName', this.siteName)
+             .replace('$siteURL', this.siteURL)
+             .replace('$linkName', linkName)
+             .replace('$linkURL', linkURL))
+       );
+       return content;
+     }
+   }
+   
+   class TreeViewNavigation {
+     constructor(node) {
+       var linkURL, linkTitle;
+   
+       // Check whether node is a DOM element
+       if (typeof node !== 'object') {
+         return;
+       }
+   
+       document.body.addEventListener('focusin', this.onBodyFocusin.bind(this));
+       document.body.addEventListener('mousedown', this.onBodyFocusin.bind(this));
+   
+       this.treeNode = node;
+       this.navNode = node.parentElement;
+   
+       this.treeitems = this.treeNode.querySelectorAll('[role="treeitem"]');
+       for (let i = 0; i < this.treeitems.length; i++) {
+         let ti = this.treeitems[i];
+         ti.addEventListener('keydown', this.onKeydown.bind(this));
+         ti.addEventListener('click', this.onLinkClick.bind(this));
+         // first tree item is in tab sequence of page
+         if (i == 0) {
+           ti.tabIndex = 0;
+         } else {
+           ti.tabIndex = -1;
+         }
+         var groupNode = this.getGroupNode(ti);
+         if (groupNode) {
+           var span = ti.querySelector('span.icon');
+           span.addEventListener('click', this.onIconClick.bind(this));
+         }
+       }
+   
+       // Initial content for page
+       if (location.href.split('#').length > 1) {
+         linkURL = location.href;
+         linkTitle = getLinkNameFromURL(location.href);
+       } else {
+         linkURL = location.href + '#home';
+         linkTitle = 'Home';
+       }
+   
+       this.contentGenerator = new NavigationContentGenerator(
+         '#home',
+         'Mythical University'
+       );
+       this.updateContent(linkURL, linkTitle, false);
+   
+       function getLinkNameFromURL(url) {
+         function capitalize(str) {
+           return str.charAt(0).toUpperCase() + str.slice(1);
+         }
+   
+         var name = url.split('#')[1];
+         if (typeof name === 'string') {
+           name = name.split('-').map(capitalize).join(' ');
+         } else {
+           name = 'Home';
+         }
+         return name;
+       }
+     }
+   
+     updateContent(linkURL, linkName, moveFocus) {
+       var h1Node, paraNodes;
+   
+       if (typeof moveFocus !== 'boolean') {
+         moveFocus = true;
+       }
+   
+       // Update content area
+       h1Node = document.querySelector('.page .main h1');
+       if (h1Node) {
+         h1Node.textContent = linkName;
+       }
+       paraNodes = document.querySelectorAll('.page .main p');
+       paraNodes.forEach(
+         (p) =>
+           (p.innerHTML = this.contentGenerator.renderParagraph(linkURL, linkName))
+       );
+   
+       // move focus to the content region
+       if (moveFocus && h1Node) {
+         h1Node.tabIndex = -1;
+         h1Node.focus();
+       }
+   
+       // Update aria-current
+       this.updateAriaCurrent(linkURL);
+     }
+   
+     getAriaCurrentURL() {
+       let url = false;
+       let node = this.treeNode.querySelector('[aria-current]');
+       if (node) {
+         url = node.href;
+       }
+       return url;
+     }
+   
+     updateAriaCurrent(url) {
+       if (typeof url !== 'string') {
+         url = this.getAriaCurrentURL();
+       }
+   
+       this.treeitems.forEach((item) => {
+         if (item.href === url) {
+           item.setAttribute('aria-current', 'page');
+           // Make sure link is visible
+           this.showTreeitem(item);
+           this.setTabIndex(item);
+         } else {
+           item.removeAttribute('aria-current');
+         }
+       });
+     }
+   
+     showTreeitem(treeitem) {
+       var parentNode = this.getParentTreeitem(treeitem);
+   
+       while (parentNode) {
+         parentNode.setAttribute('aria-expanded', 'true');
+         parentNode = this.getParentTreeitem(parentNode);
+       }
+     }
+   
+     setTabIndex(treeitem) {
+       this.treeitems.forEach((item) => (item.tabIndex = -1));
+       treeitem.tabIndex = 0;
+     }
+   
+     getParentTreeitem(treeitem) {
+       var node = treeitem.parentNode;
+   
+       if (node) {
+         node = node.parentNode;
+         if (node) {
+           node = node.previousElementSibling;
+           if (node && node.getAttribute('role') === 'treeitem') {
+             return node;
+           }
+         }
+       }
+       return false;
+     }
+   
+     isVisible(treeitem) {
+       var flag = true;
+       if (this.isInSubtree(treeitem)) {
+         treeitem = this.getParentTreeitem(treeitem);
+         if (!treeitem || treeitem.getAttribute('aria-expanded') === 'false') {
+           return false;
+         }
+       }
+       return flag;
+     }
+   
+     isInSubtree(treeitem) {
+       if (treeitem.parentNode && treeitem.parentNode.parentNode) {
+         return treeitem.parentNode.parentNode.getAttribute('role') === 'group';
+       }
+       return false;
+     }
+   
+     isExpandable(treeitem) {
+       return treeitem.hasAttribute('aria-expanded');
+     }
+   
+     isExpanded(treeitem) {
+       return treeitem.getAttribute('aria-expanded') === 'true';
+     }
+   
+     getGroupNode(treeitem) {
+       var groupNode = false;
+       var id = treeitem.getAttribute('aria-owns');
+       if (id) {
+         groupNode = document.getElementById(id);
+       }
+       return groupNode;
+     }
+   
+     getVisibleTreeitems() {
+       var items = [];
+       for (var i = 0; i < this.treeitems.length; i++) {
+         var ti = this.treeitems[i];
+         if (this.isVisible(ti)) {
+           items.push(ti);
+         }
+       }
+       return items;
+     }
+   
+     collapseTreeitem(treeitem) {
+       if (treeitem.getAttribute('aria-owns')) {
+         var groupNode = document.getElementById(
+           treeitem.getAttribute('aria-owns')
+         );
+         if (groupNode) {
+           treeitem.setAttribute('aria-expanded', 'false');
+         }
+       }
+     }
+   
+     expandTreeitem(treeitem) {
+       if (treeitem.getAttribute('aria-owns')) {
+         var groupNode = document.getElementById(
+           treeitem.getAttribute('aria-owns')
+         );
+         if (groupNode) {
+           treeitem.setAttribute('aria-expanded', 'true');
+         }
+       }
+     }
+   
+     expandAllSiblingTreeitems(treeitem) {
+       var parentNode = treeitem.parentNode.parentNode;
+   
+       if (parentNode) {
+         var siblingTreeitemNodes = parentNode.querySelectorAll(
+           ':scope > li > a[aria-expanded]'
+         );
+   
+         for (var i = 0; i < siblingTreeitemNodes.length; i++) {
+           siblingTreeitemNodes[i].setAttribute('aria-expanded', 'true');
+         }
+       }
+     }
+   
+     setFocusToTreeitem(treeitem) {
+       treeitem.focus();
+     }
+   
+     setFocusToNextTreeitem(treeitem) {
+       var visibleTreeitems = this.getVisibleTreeitems();
+       var nextItem = false;
+   
+       for (var i = visibleTreeitems.length - 1; i >= 0; i--) {
+         var ti = visibleTreeitems[i];
+         if (ti === treeitem) {
+           break;
+         }
+         nextItem = ti;
+       }
+       if (nextItem) {
+         this.setFocusToTreeitem(nextItem);
+       }
+     }
+   
+     setFocusToPreviousTreeitem(treeitem) {
+       var visibleTreeitems = this.getVisibleTreeitems();
+       var prevItem = false;
+   
+       for (var i = 0; i < visibleTreeitems.length; i++) {
+         var ti = visibleTreeitems[i];
+         if (ti === treeitem) {
+           break;
+         }
+         prevItem = ti;
+       }
+   
+       if (prevItem) {
+         this.setFocusToTreeitem(prevItem);
+       }
+     }
+   
+     setFocusToParentTreeitem(treeitem) {
+       if (this.isInSubtree(treeitem)) {
+         var ti = treeitem.parentNode.parentNode.previousElementSibling;
+         this.setFocusToTreeitem(ti);
+       }
+     }
+   
+     setFocusByFirstCharacter(treeitem, char) {
+       var start,
+         i,
+         ti,
+         index = -1;
+       var visibleTreeitems = this.getVisibleTreeitems();
+       char = char.toLowerCase();
+   
+       // Get start index for search based on position of treeitem
+       start = visibleTreeitems.indexOf(treeitem) + 1;
+       if (start >= visibleTreeitems.length) {
+         start = 0;
+       }
+   
+       // Check remaining items in the tree
+       for (i = start; i < visibleTreeitems.length; i++) {
+         ti = visibleTreeitems[i];
+         if (char === ti.textContent.trim()[0].toLowerCase()) {
+           index = i;
+           break;
+         }
+       }
+   
+       // If not found in remaining slots, check from beginning
+       if (index === -1) {
+         for (i = 0; i < start; i++) {
+           ti = visibleTreeitems[i];
+           if (char === ti.textContent.trim()[0].toLowerCase()) {
+             index = i;
+             break;
+           }
+         }
+       }
+   
+       // If match was found...
+       if (index > -1) {
+         this.setFocusToTreeitem(visibleTreeitems[index]);
+       }
+     }
+   
+     // Event handlers
+   
+     onBodyFocusin(event) {
+       var tgt = event.target;
+   
+       if (this.treeNode.contains(tgt)) {
+         this.navNode.classList.add('focus');
+       } else {
+         this.navNode.classList.remove('focus');
+         this.updateAriaCurrent();
+       }
+     }
+   
+     onIconClick(event) {
+       var tgt = event.currentTarget;
+   
+       if (this.isExpanded(tgt.parentNode.parentNode)) {
+         this.collapseTreeitem(tgt.parentNode.parentNode);
+       } else {
+         this.expandTreeitem(tgt.parentNode.parentNode);
+       }
+   
+       event.preventDefault();
+       event.stopPropagation();
+     }
+   
+     onLinkClick(event) {
+       var tgt = event.currentTarget;
+       this.updateContent(tgt.href, tgt.textContent.trim());
+   
+       event.preventDefault();
+       event.stopPropagation();
+     }
+   
+     onKeydown(event) {
+       var tgt = event.currentTarget,
+         flag = false,
+         key = event.key;
+   
+       function isPrintableCharacter(str) {
+         return str.length === 1 && str.match(/\S/);
+       }
+   
+       if (event.altKey || event.ctrlKey || event.metaKey) {
+         return;
+       }
+   
+       if (event.shift) {
+         if (
+           event.keyCode == this.keyCode.SPACE ||
+           event.keyCode == this.keyCode.RETURN
+         ) {
+           event.stopPropagation();
+         } else {
+           if (isPrintableCharacter(key)) {
+             if (key == '*') {
+               this.expandAllSiblingTreeitems(tgt);
+               flag = true;
+             } else {
+               this.setFocusByFirstCharacter(tgt, key);
+             }
+           }
+         }
+       } else {
+         switch (key) {
+           // NOTE: Return key is supported through the click event
+           case ' ':
+             this.updateContent(tgt.href, tgt.textContent.trim());
+             flag = true;
+             break;
+   
+           case 'Up':
+           case 'ArrowUp':
+             this.setFocusToPreviousTreeitem(tgt);
+             flag = true;
+             break;
+   
+           case 'Down':
+           case 'ArrowDown':
+             this.setFocusToNextTreeitem(tgt);
+             flag = true;
+             break;
+   
+           case 'Right':
+           case 'ArrowRight':
+             if (this.isExpandable(tgt)) {
+               if (this.isExpanded(tgt)) {
+                 this.setFocusToNextTreeitem(tgt);
+               } else {
+                 this.expandTreeitem(tgt);
+               }
+             }
+             flag = true;
+             break;
+   
+           case 'Left':
+           case 'ArrowLeft':
+             if (this.isExpandable(tgt) && this.isExpanded(tgt)) {
+               this.collapseTreeitem(tgt);
+               flag = true;
+             } else {
+               if (this.isInSubtree(tgt)) {
+                 this.setFocusToParentTreeitem(tgt);
+                 flag = true;
+               }
+             }
+             break;
+   
+           case 'Home':
+             this.setFocusToTreeitem(this.treeitems[0]);
+             flag = true;
+             break;
+   
+           case 'End':
+             var visibleTreeitems = this.getVisibleTreeitems();
+             this.setFocusToTreeitem(
+               visibleTreeitems[visibleTreeitems.length - 1]
+             );
+             flag = true;
+             break;
+   
+           default:
+             if (isPrintableCharacter(key)) {
+               if (key == '*') {
+                 this.expandAllSiblingTreeitems(tgt);
+                 flag = true;
+               } else {
+                 this.setFocusByFirstCharacter(tgt, key);
+               }
+             }
+             break;
+         }
+       }
+   
+       if (flag) {
+         event.stopPropagation();
+         event.preventDefault();
+       }
+     }
+   }
+   
+   /**
+    * ARIA Treeview example
+    *
+    * @function onload
+    * @description  after page has loaded initialize all treeitems based on the role=treeitem
+    */
+   
+   window.addEventListener('load', function () {
+     var trees = document.querySelectorAll('nav [role="tree"]');
+   
+     for (let i = 0; i < trees.length; i++) {
+       new TreeViewNavigation(trees[i]);
+     }
+   });
+   </script>
+</html>

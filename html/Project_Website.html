@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page with Wind Animation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #dcdda8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #15d3bc;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .title {
+            display: inline-block;
+            font-size: 4em;
+            font-weight: bold;
+            position: relative;
+            white-space: nowrap;            
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+
+        .hidden {
+            opacity: 0;
+        }
+        .blowing-man {
+             width: 80px; /* Adjust the size of the GIF */
+             height: auto;
+            margin-right: 20px; /* Space between the GIF and the title */
+            opacity: 1;
+             animation: blowManAnimation 3s ease-in-out forwards,; /* Adding rotation */
+             transform: scaleX(-1); /* This flips the GIF horizontally */
+        }
+        .tree_man {
+             width: 80px; /* Adjust the size of the GIF */
+            height: auto;
+            margin-right: 200px; /* Space between the GIF and the title */
+            opacity: 1;
+        }
+        .letter {
+            display: inline-block;
+            position: relative;
+            opacity: 1;
+            animation: blowRight 4s ease-in-out forwards;
+            margin-right: 0.02em; /* Add space between letters */
+        }
+        @keyframes blowManAnimation {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(-200px) translateY(40px);
+            }
+        }
+        @keyframes blowRight {
+            0% {
+                transform: translateX(0) translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            25% {
+                transform: translateX(30px) translateY(-10px) rotate(5deg);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateX(100px) translateY(-20px) rotate(10deg);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translateX(150px) translateY(-30px) rotate(15deg);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateX(200px) translateY(-40px) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes rotateGif {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg); /* Full rotation */
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+    <img src="one.gif" alt="Blowing Man" class="blowing-man">
+    <img src="522792_13f83.gif" alt="Blowing Man" class="tree_man">
+    <h1 class="title" id="animated-title"></h1>
+</header>
+
+<!-- Main Content Section -->
+<main>
+    <div class="page">
+    <div class="body">
+        <nav aria-label="MAIP Project">
+          <ul class="treeview-navigation" role="tree" aria-label="MAIP project">
+            <li role="none">
+              <a role="treeitem" href="#home" aria-current="page">
+                <span class="label">Home</span>
+              </a>
+            </li>
+            <li role="none">
+              <a role="treeitem" aria-expanded="false" aria-owns="id-tutorials-subtree" href="#tutorial">
+                <span class="label">
+                  <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                      <polygon points="2 1, 12 1, 7 9"></polygon>
+                    </svg>
+                  </span>
+                  Tutorials
+                </span>
+              </a>
+              <ul id="id-tutorials-subtree" role="group" aria-label="Tutorials">
+                <li role="none">
+                  <a role="treeitem" aria-expanded="false" aria-owns="id-labview_bs-subtree" href="#labview_bs">
+                    <span class="label">
+                      <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                          <polygon points="2 1, 12 1, 7 9"></polygon>
+                        </svg>
+                      </span>
+                      LabVIEW Basics
+                    </span>
+                  </a>
+                  <ul id="id-labview_bs-subtree" role="group" aria-label="LabVIEW Basics">
+                    <li role="none">
+                      <a role="treeitem" href="#history">
+                        <span class="label">What's LabVIEW?</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#front_panel">
+                        <span class="label"> Front Panel</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#block_diagram">
+                        <span class="label">Block Diagram</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#controls">
+                        <span class="label">Controls</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#indicators">
+                        <span class="label">Indicators</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#arrays">
+                        <span class="label">Arrays</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#clusters">
+                        <span class="label">Clusters</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#strings">
+                        <span class="label">Strings</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#control_structures">
+                        <span class="label">Control Structures</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#fileio">
+                        <span class="label">FILE I/O</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#graphs">
+                        <span class="label">Graphs</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#math">
+                        <span class="label">Math</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#subvi">
+                        <span class="label">SubVIs</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#ie">
+                        <span class="label">Icon Editing</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li role="none">
+                  <a role="treeitem" aria-expanded="false" aria-owns="id-labview_ad-subtree" href="#labview_ad">
+                    <span class="label">
+                      <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                          <polygon points="2 1, 12 1, 7 9"></polygon>
+                        </svg>
+                      </span>
+                      LabVIEW Advanced
+                    </span>
+                  </a>
+                  <ul id="id-labview_ad-subtree" role="group" aria-label="LabVIEW Advanced">
+                    <li role="none">
+                      <a role="treeitem" href="#daq">
+                        <span class="label">DAQ</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#gpib">
+                        <span class="label"> GPIB </span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#fsm">
+                        <span class="label">Finite State Machines</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#queues">
+                        <span class="label">Queues</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#ac">
+                        <span class="label">Asynchronuous Calls</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#pcp">
+                        <span class="label">Producer-Consumer Pattern</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li role="none">
+                  <a role="treeitem" aria-expanded="false" aria-owns="id-arduino-subtree" href="#arduino">
+                    <span class="label">
+                      <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                          <polygon points="2 1, 12 1, 7 9"></polygon>
+                        </svg>
+                      </span>
+                      Arduino
+                    </span>
+                  </a>
+                  <ul id="id-arduino-subtree" role="group" aria-label="Arduino">
+                    <li role="none">
+                      <a role="treeitem" href="#sketch">
+                        <span class="label">Sketch</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#labview_arduino">
+                        <span class="label"> LabVIEW </span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#wtfisarduino">
+                        <span class="label">What's an Arduino?</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li role="none">
+              <a role="treeitem" aria-expanded="false" aria-owns="id-datasheets-subtree" href="#datasheets">
+                <span class="label">
+                  <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                      <polygon points="2 1, 12 1, 7 9"></polygon>
+                    </svg>
+                  </span>
+                  Datasheets
+                </span>
+              </a>
+              <ul id="id-datasheets-subtree" role="group" aria-label="Datasheets">
+                <li role="none">
+                  <a role="treeitem" href="#nidaq">
+                    <span class="label">NI DAQ 6008-USB</span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="treeitem" aria-expanded="false" aria-owns="id-flow_sensors-subtree" href="#flow_sensors">
+                    <span class="label">
+                      <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                          <polygon points="2 1, 12 1, 7 9"></polygon>
+                        </svg>
+                      </span>
+                      Flow Sensors
+                    </span>
+                  </a>
+                  <ul id="id-flow_sensors-subtree" role="group" aria-label="Flow_Sensors">
+                    <li role="none">
+                      <a role="treeitem" href="#analog">
+                        <span class="label">FS1012 (Analog)</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#digital">
+                        <span class="label">FS2012 (Digital)</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li role="none">
+                  <a role="treeitem" aria-expanded="false" aria-owns="id-power_supply-subtree" href="#power_supply">
+                    <span class="label">
+                      <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                          <polygon points="2 1, 12 1, 7 9"></polygon>
+                        </svg>
+                      </span>
+                      Power Supply
+                    </span>
+                  </a>
+                  <ul id="id-power_supply-subtree" role="group" aria-label="Power Supply">
+                    <li role="none">
+                      <a role="treeitem" href="#programmer">
+                        <span class="label">Programmer's Manual</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#user_manual">
+                        <span class="label">User Manual</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li role="none">
+                  <a role="treeitem" href="#airpump">
+                    <span class="label">Air Pump (EAD NEO PP2)</span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="treeitem" href="#tina">
+                    <span class="label">INA128P (Diff.Amplifier)</span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="treeitem" href="#arduinoUNO">
+                    <span class="label">Arduino</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li role="none">
+              <a role="treeitem" aria-expanded="false" aria-owns="id-MAPI-subtree" href="#MAPI">
+                <span class="label">
+                  <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                      <polygon points="2 1, 12 1, 7 9"></polygon>
+                    </svg>
+                  </span>
+                  MAIP LabVIEW Project
+                </span>
+              </a>
+              <ul id="id-MAPI-subtree" role="group" aria-label="MAIP LabVIEW Project">
+                <li role="none">
+                  <a role="treeitem" href="#colleges-and-schools">
+                    <span class="label">MainVI &amp; Project Hierarchy</span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="treeitem" aria-expanded="false" aria-owns="id-gpib_uart-subtree" href="#gpib_uart">
+                    <span class="label">
+                      <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                          <polygon points="2 1, 12 1, 7 9"></polygon>
+                        </svg>
+                      </span>
+                      GPIB_UART.lvlib
+                    </span>
+                  </a>
+                  <ul id="id-gpib_uart-subtree" role="group" aria-label="GPIB_UART.lvlib">
+                    <li role="none">
+                      <a role="treeitem" href="#gpibfsm">
+                        <span class="label">GPIB_FSM</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#uartfsm">
+                        <span class="label">UART_FSM</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li role="none">
+                  <a role="treeitem" aria-expanded="false" aria-owns="id-daqlib-subtree" href="#daqlib">
+                    <span class="label">
+                      <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+                          <polygon points="2 1, 12 1, 7 9"></polygon>
+                        </svg>
+                      </span>
+                      DAQ.lvlib
+                    </span>
+                  </a>
+                  <ul id="id-daqlib-subtree" role="group" aria-label="DAQ.lvlib">
+                    <li role="none">
+                      <a role="treeitem" href="#daqfsm">
+                        <span class="label">DAQ_FSM</span>
+                      </a>
+                    </li>
+                    <li role="none">
+                      <a role="treeitem" href="#buildtask">
+                        <span class="label">Build_Task.VI</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li role="none">
+                  <a role="treeitem" href="#calibration">
+                    <span class="label">Calibration_FSM</span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="treeitem" href="#supportVIs">
+                    <span class="label">SupportVIs</span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="treeitem" href="#customcontrols">
+                    <span class="label">Custom Controls</span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="treeitem" href="#manuals">
+                    <span class="label">User and Programmer's Manual</span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a role="treeitem" href="#calproc">
+                    <span class="label">Calibration Procedure</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+  
+        
+        <section class="main" aria-labelledby="id_website_title id_page_title">
+          <h1 class="page_title" id="id_page_title">MAIP</h1>
+          <div class="content">
+            <p></p>
+          </div>
+        </section>
+      </div>
+    </div>
+<script>
+    'use strict';
+    
+    class NavigationContentGenerator {
+      constructor(siteURL, siteName) {
+        this.siteName = siteName;
+        this.siteURL = siteURL;
+        this.fillerTextSentences = [];
+    
+        this.fillerTextSentences.push(
+          'The content on this page is associated with the <a href="$linkURL">$linkName</a> link for <a href="$siteURL">$siteName</a>.'
+        );
+        //  this.fillerTextSentences.push('The text content in this paragraph is filler text providing a detectable change of content when the <a href="$linkURL">$linkName</a> link is selected from the menu.  ');
+        //  this.fillerTextSentences.push('<a href="$siteURL">$siteName</a> doesn\'t really exist, but the use of an organizational name is useful to provide context for the <a href="$linkURL">$linkName</a> link.  ');
+        //  this.fillerTextSentences.push('Since $siteName doesn\'t exist there really is no real content associated with the <a href="$linkURL">$linkName</a> link.');
+      }
+    
+      renderParagraph(linkURL, linkName) {
+        var content = '';
+        this.fillerTextSentences.forEach(
+          (s) =>
+            (content += s
+              .replace('$siteName', this.siteName)
+              .replace('$siteURL', this.siteURL)
+              .replace('$linkName', linkName)
+              .replace('$linkURL', linkURL))
+        );
+        return content;
+      }
+    }
+    
+    class TreeViewNavigation {
+      constructor(node) {
+        var linkURL, linkTitle;
+    
+        // Check whether node is a DOM element
+        if (typeof node !== 'object') {
+          return;
+        }
+    
+        document.body.addEventListener('focusin', this.onBodyFocusin.bind(this));
+        document.body.addEventListener('mousedown', this.onBodyFocusin.bind(this));
+    
+        this.treeNode = node;
+        this.navNode = node.parentElement;
+    
+        this.treeitems = this.treeNode.querySelectorAll('[role="treeitem"]');
+        for (let i = 0; i < this.treeitems.length; i++) {
+          let ti = this.treeitems[i];
+          ti.addEventListener('keydown', this.onKeydown.bind(this));
+          ti.addEventListener('click', this.onLinkClick.bind(this));
+          // first tree item is in tab sequence of page
+          if (i == 0) {
+            ti.tabIndex = 0;
+          } else {
+            ti.tabIndex = -1;
+          }
+          var groupNode = this.getGroupNode(ti);
+          if (groupNode) {
+            var span = ti.querySelector('span.icon');
+            span.addEventListener('click', this.onIconClick.bind(this));
+          }
+        }
+    
+        // Initial content for page
+        if (location.href.split('#').length > 1) {
+          linkURL = location.href;
+          linkTitle = getLinkNameFromURL(location.href);
+        } else {
+          linkURL = location.href + '#home';
+          linkTitle = 'Home';
+        }
+    
+        this.contentGenerator = new NavigationContentGenerator(
+          '#home',
+          'Mythical University'
+        );
+        this.updateContent(linkURL, linkTitle, false);
+    
+        function getLinkNameFromURL(url) {
+          function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+          }
+    
+          var name = url.split('#')[1];
+          if (typeof name === 'string') {
+            name = name.split('-').map(capitalize).join(' ');
+          } else {
+            name = 'Home';
+          }
+          return name;
+        }
+      }
+    
+      updateContent(linkURL, linkName, moveFocus) {
+        var h1Node, paraNodes;
+    
+        if (typeof moveFocus !== 'boolean') {
+          moveFocus = true;
+        }
+    
+        // Update content area
+        h1Node = document.querySelector('.page .main h1');
+        if (h1Node) {
+          h1Node.textContent = linkName;
+        }
+        paraNodes = document.querySelectorAll('.page .main p');
+        paraNodes.forEach(
+          (p) =>
+            (p.innerHTML = this.contentGenerator.renderParagraph(linkURL, linkName))
+        );
+    
+        // move focus to the content region
+        if (moveFocus && h1Node) {
+          h1Node.tabIndex = -1;
+          h1Node.focus();
+        }
+    
+        // Update aria-current
+        this.updateAriaCurrent(linkURL);
+      }
+    
+      getAriaCurrentURL() {
+        let url = false;
+        let node = this.treeNode.querySelector('[aria-current]');
+        if (node) {
+          url = node.href;
+        }
+        return url;
+      }
+    
+      updateAriaCurrent(url) {
+        if (typeof url !== 'string') {
+          url = this.getAriaCurrentURL();
+        }
+    
+        this.treeitems.forEach((item) => {
+          if (item.href === url) {
+            item.setAttribute('aria-current', 'page');
+            // Make sure link is visible
+            this.showTreeitem(item);
+            this.setTabIndex(item);
+          } else {
+            item.removeAttribute('aria-current');
+          }
+        });
+      }
+    
+      showTreeitem(treeitem) {
+        var parentNode = this.getParentTreeitem(treeitem);
+    
+        while (parentNode) {
+          parentNode.setAttribute('aria-expanded', 'true');
+          parentNode = this.getParentTreeitem(parentNode);
+        }
+      }
+    
+      setTabIndex(treeitem) {
+        this.treeitems.forEach((item) => (item.tabIndex = -1));
+        treeitem.tabIndex = 0;
+      }
+    
+      getParentTreeitem(treeitem) {
+        var node = treeitem.parentNode;
+    
+        if (node) {
+          node = node.parentNode;
+          if (node) {
+            node = node.previousElementSibling;
+            if (node && node.getAttribute('role') === 'treeitem') {
+              return node;
+            }
+          }
+        }
+        return false;
+      }
+    
+      isVisible(treeitem) {
+        var flag = true;
+        if (this.isInSubtree(treeitem)) {
+          treeitem = this.getParentTreeitem(treeitem);
+          if (!treeitem || treeitem.getAttribute('aria-expanded') === 'false') {
+            return false;
+          }
+        }
+        return flag;
+      }
+    
+      isInSubtree(treeitem) {
+        if (treeitem.parentNode && treeitem.parentNode.parentNode) {
+          return treeitem.parentNode.parentNode.getAttribute('role') === 'group';
+        }
+        return false;
+      }
+    
+      isExpandable(treeitem) {
+        return treeitem.hasAttribute('aria-expanded');
+      }
+    
+      isExpanded(treeitem) {
+        return treeitem.getAttribute('aria-expanded') === 'true';
+      }
+    
+      getGroupNode(treeitem) {
+        var groupNode = false;
+        var id = treeitem.getAttribute('aria-owns');
+        if (id) {
+          groupNode = document.getElementById(id);
+        }
+        return groupNode;
+      }
+    
+      getVisibleTreeitems() {
+        var items = [];
+        for (var i = 0; i < this.treeitems.length; i++) {
+          var ti = this.treeitems[i];
+          if (this.isVisible(ti)) {
+            items.push(ti);
+          }
+        }
+        return items;
+      }
+    
+      collapseTreeitem(treeitem) {
+        if (treeitem.getAttribute('aria-owns')) {
+          var groupNode = document.getElementById(
+            treeitem.getAttribute('aria-owns')
+          );
+          if (groupNode) {
+            treeitem.setAttribute('aria-expanded', 'false');
+          }
+        }
+      }
+    
+      expandTreeitem(treeitem) {
+        if (treeitem.getAttribute('aria-owns')) {
+          var groupNode = document.getElementById(
+            treeitem.getAttribute('aria-owns')
+          );
+          if (groupNode) {
+            treeitem.setAttribute('aria-expanded', 'true');
+          }
+        }
+      }
+    
+      expandAllSiblingTreeitems(treeitem) {
+        var parentNode = treeitem.parentNode.parentNode;
+    
+        if (parentNode) {
+          var siblingTreeitemNodes = parentNode.querySelectorAll(
+            ':scope > li > a[aria-expanded]'
+          );
+    
+          for (var i = 0; i < siblingTreeitemNodes.length; i++) {
+            siblingTreeitemNodes[i].setAttribute('aria-expanded', 'true');
+          }
+        }
+      }
+    
+      setFocusToTreeitem(treeitem) {
+        treeitem.focus();
+      }
+    
+      setFocusToNextTreeitem(treeitem) {
+        var visibleTreeitems = this.getVisibleTreeitems();
+        var nextItem = false;
+    
+        for (var i = visibleTreeitems.length - 1; i >= 0; i--) {
+          var ti = visibleTreeitems[i];
+          if (ti === treeitem) {
+            break;
+          }
+          nextItem = ti;
+        }
+        if (nextItem) {
+          this.setFocusToTreeitem(nextItem);
+        }
+      }
+    
+      setFocusToPreviousTreeitem(treeitem) {
+        var visibleTreeitems = this.getVisibleTreeitems();
+        var prevItem = false;
+    
+        for (var i = 0; i < visibleTreeitems.length; i++) {
+          var ti = visibleTreeitems[i];
+          if (ti === treeitem) {
+            break;
+          }
+          prevItem = ti;
+        }
+    
+        if (prevItem) {
+          this.setFocusToTreeitem(prevItem);
+        }
+      }
+    
+      setFocusToParentTreeitem(treeitem) {
+        if (this.isInSubtree(treeitem)) {
+          var ti = treeitem.parentNode.parentNode.previousElementSibling;
+          this.setFocusToTreeitem(ti);
+        }
+      }
+    
+      setFocusByFirstCharacter(treeitem, char) {
+        var start,
+          i,
+          ti,
+          index = -1;
+        var visibleTreeitems = this.getVisibleTreeitems();
+        char = char.toLowerCase();
+    
+        // Get start index for search based on position of treeitem
+        start = visibleTreeitems.indexOf(treeitem) + 1;
+        if (start >= visibleTreeitems.length) {
+          start = 0;
+        }
+    
+        // Check remaining items in the tree
+        for (i = start; i < visibleTreeitems.length; i++) {
+          ti = visibleTreeitems[i];
+          if (char === ti.textContent.trim()[0].toLowerCase()) {
+            index = i;
+            break;
+          }
+        }
+    
+        // If not found in remaining slots, check from beginning
+        if (index === -1) {
+          for (i = 0; i < start; i++) {
+            ti = visibleTreeitems[i];
+            if (char === ti.textContent.trim()[0].toLowerCase()) {
+              index = i;
+              break;
+            }
+          }
+        }
+    
+        // If match was found...
+        if (index > -1) {
+          this.setFocusToTreeitem(visibleTreeitems[index]);
+        }
+      }
+    
+      // Event handlers
+    
+      onBodyFocusin(event) {
+        var tgt = event.target;
+    
+        if (this.treeNode.contains(tgt)) {
+          this.navNode.classList.add('focus');
+        } else {
+          this.navNode.classList.remove('focus');
+          this.updateAriaCurrent();
+        }
+      }
+    
+      onIconClick(event) {
+        var tgt = event.currentTarget;
+    
+        if (this.isExpanded(tgt.parentNode.parentNode)) {
+          this.collapseTreeitem(tgt.parentNode.parentNode);
+        } else {
+          this.expandTreeitem(tgt.parentNode.parentNode);
+        }
+    
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    
+      onLinkClick(event) {
+        var tgt = event.currentTarget;
+        this.updateContent(tgt.href, tgt.textContent.trim());
+    
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    
+      onKeydown(event) {
+        var tgt = event.currentTarget,
+          flag = false,
+          key = event.key;
+    
+        function isPrintableCharacter(str) {
+          return str.length === 1 && str.match(/\S/);
+        }
+    
+        if (event.altKey || event.ctrlKey || event.metaKey) {
+          return;
+        }
+    
+        if (event.shift) {
+          if (
+            event.keyCode == this.keyCode.SPACE ||
+            event.keyCode == this.keyCode.RETURN
+          ) {
+            event.stopPropagation();
+          } else {
+            if (isPrintableCharacter(key)) {
+              if (key == '*') {
+                this.expandAllSiblingTreeitems(tgt);
+                flag = true;
+              } else {
+                this.setFocusByFirstCharacter(tgt, key);
+              }
+            }
+          }
+        } else {
+          switch (key) {
+            // NOTE: Return key is supported through the click event
+            case ' ':
+              this.updateContent(tgt.href, tgt.textContent.trim());
+              flag = true;
+              break;
+    
+            case 'Up':
+            case 'ArrowUp':
+              this.setFocusToPreviousTreeitem(tgt);
+              flag = true;
+              break;
+    
+            case 'Down':
+            case 'ArrowDown':
+              this.setFocusToNextTreeitem(tgt);
+              flag = true;
+              break;
+    
+            case 'Right':
+            case 'ArrowRight':
+              if (this.isExpandable(tgt)) {
+                if (this.isExpanded(tgt)) {
+                  this.setFocusToNextTreeitem(tgt);
+                } else {
+                  this.expandTreeitem(tgt);
+                }
+              }
+              flag = true;
+              break;
+    
+            case 'Left':
+            case 'ArrowLeft':
+              if (this.isExpandable(tgt) && this.isExpanded(tgt)) {
+                this.collapseTreeitem(tgt);
+                flag = true;
+              } else {
+                if (this.isInSubtree(tgt)) {
+                  this.setFocusToParentTreeitem(tgt);
+                  flag = true;
+                }
+              }
+              break;
+    
+            case 'Home':
+              this.setFocusToTreeitem(this.treeitems[0]);
+              flag = true;
+              break;
+    
+            case 'End':
+              var visibleTreeitems = this.getVisibleTreeitems();
+              this.setFocusToTreeitem(
+                visibleTreeitems[visibleTreeitems.length - 1]
+              );
+              flag = true;
+              break;
+    
+            default:
+              if (isPrintableCharacter(key)) {
+                if (key == '*') {
+                  this.expandAllSiblingTreeitems(tgt);
+                  flag = true;
+                } else {
+                  this.setFocusByFirstCharacter(tgt, key);
+                }
+              }
+              break;
+          }
+        }
+    
+        if (flag) {
+          event.stopPropagation();
+          event.preventDefault();
+        }
+      }
+    }
+    
+    /**
+     * ARIA Treeview example
+     *
+     * @function onload
+     * @description  after page has loaded initialize all treeitems based on the role=treeitem
+     */
+    
+    window.addEventListener('load', function () {
+      var trees = document.querySelectorAll('nav [role="tree"]');
+    
+      for (let i = 0; i < trees.length; i++) {
+        new TreeViewNavigation(trees[i]);
+      }
+    });
+    // Language phrases
+    const titles = [
+        "Welcome",     // English
+        "Benvenuto/a!",   // Italian
+        "به پروژه ما خوش آمدید",   // omid
+        "أهلاً وسهلاً في مشروعنا" //hamza
+    ];
+
+    let currentIndex = 0;
+    const titleElement = document.getElementById("animated-title");
+
+    // Function to set and animate the title
+    function setTitle() {
+        // Hide the title first
+        titleElement.classList.add("hidden");
+
+        // Wait for fade-out to complete
+        setTimeout(() => {
+            // Clear the current content
+            titleElement.innerHTML = "";
+
+            // Populate the next title
+            const currentTitle = titles[currentIndex].split(" ");
+            currentTitle.forEach((word, wordIndex) => {
+                word.split("").forEach((letter, i) => {
+                    const span = document.createElement("span");
+                    span.classList.add("letter");
+                    span.style.animationDelay = `${wordIndex * 0.3 + i * 0.1}s`;
+                    span.textContent = letter;
+                    titleElement.appendChild(span);
+                });
+
+                // Add extra space between words
+                const space = document.createElement("span");
+                space.style.marginRight = "1em";
+                titleElement.appendChild(space);
+            });
+
+            // Update index for the next cycle
+            currentIndex = (currentIndex + 1) % titles.length;
+
+            // Show the title after updating the text
+            titleElement.classList.remove("hidden");
+
+            // Wait for animation to finish and restart
+            titleElement.addEventListener(
+                "animationend",
+                () => {
+                    setTimeout(setTitle, 1000); // Delay before next animation
+                },
+                { once: true }
+            );
+        }, 500); // Wait for fade-out to complete
+    }
+
+    // Start animation
+    setTitle();
+</script>
+<script>src="script.js"</script>
+</body>
+</html>
